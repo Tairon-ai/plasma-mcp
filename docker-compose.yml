@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  plasma-mcp:
+    build: .
+    image: plasma-mcp:latest
+    container_name: plasma-mcp
+    ports:
+      - "8080:8080"
+    environment:
+      - PORT=8080
+      - NODE_ENV=production
+      - RPC_URL=${RPC_URL:-https://testnet-rpc.plasma.to}
+      - WALLET_PRIVATE_KEY=${WALLET_PRIVATE_KEY}
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "node", "-e", "require('http').get('http://localhost:8080/health', (r) => {r.statusCode === 200 ? process.exit(0) : process.exit(1)})"]
+      interval: 30s
+      timeout: 3s
+      retries: 3
+      start_period: 10s
+    labels:
+      - "com.plasma.service=mcp"
+      - "com.plasma.version=0.1.0"
+      - "com.plasma.chain=testnet"

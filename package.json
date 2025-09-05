@@ -1,0 +1,40 @@
+{
+  "name": "plasma-mcp",
+  "version": "0.1.0",
+  "description": "Production-ready Model Context Protocol (MCP) server for Plasma Testnet",
+  "main": "mcp/index.js",
+  "author": "Tairon.ai",
+  "homepage": "https://github.com/tairon-ai/plasma-mcp",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tairon-ai/plasma-mcp.git"
+  },
+  "bugs": {
+    "url": "https://github.com/tairon-ai/plasma-mcp/issues"
+  },
+  "keywords": [
+    "mcp",
+    "plasma-network",
+    "blockchain",
+    "web3",
+    "claude",
+    "ai",
+    "model-context-protocol"
+  ],
+  "scripts": {
+    "start": "node server.js",
+    "mcp": "node mcp/index.js",
+    "dev": "node server.js"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.7.0",
+    "axios": "^1.6.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "ethers": "5.8.0",
+    "express": "^4.21.2",
+    "uuid": "^11.1.0",
+    "zod": "^3.24.2"
+  }
+}
